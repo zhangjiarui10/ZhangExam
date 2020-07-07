@@ -2,7 +2,7 @@ package com.zhangjiarui.UseDB;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Admin  {
+public class Admin extends ActionSupport {
     private String name;
     private String pwd;
 
@@ -21,6 +21,9 @@ public class Admin  {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
+    @Override
+    public String execute() throws Exception {
 
-
+        return "success";
+    }
 }
