@@ -21,6 +21,7 @@ public class login_judge extends ActionSupport {
         String password = request.getParameter("password");
         user.setName(name);
         user.setPwd(password);
+        System.out.println(user.getName()+"++"+user.getPwd());
         if(DB.Login(user))
             return "success";
         else
