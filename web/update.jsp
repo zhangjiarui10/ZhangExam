@@ -51,25 +51,25 @@
 <form name="form1" class="form-horizontal" action="updateAction.jsp" method="post">
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
+        <div class="col-sm-7">
             <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="Name" value="<%=request.getParameter("name")%>" readonly>
         </div>
     </div>
     <div class="form-group">
         <label for="inputEmail2" class="col-sm-2 control-label">Old Password</label>
-        <div class="col-sm-10">
+        <div class="col-sm-7">
             <input type="text" class="form-control" id="inputEmail2" name="pwd" placeholder="Password" value="<%=request.getParameter("password")%>" readonly>
         </div>
     </div>
     <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">New Password</label>
-        <div class="col-sm-10">
+        <div class="col-sm-7">
             <input type="password" class="form-control" id="inputPassword3" name="password1" placeholder="Password">
         </div>
     </div>
     <div class="form-group">
         <label for="inputPassword2" class="col-sm-2 control-label">Repeat</label>
-        <div class="col-sm-10">
+        <div class="col-sm-7">
             <input type="password" class="form-control" id="inputPassword2" name="password2" placeholder="Repeat">
         </div>
     </div>
@@ -83,7 +83,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-2 col-sm-7">
             <input type="button" class="btn btn-default" onclick="check()" value="Sign in"></input>
         </div>
     </div>

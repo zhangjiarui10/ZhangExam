@@ -94,7 +94,6 @@ public class LinkDB {
             ps.setString(1, c.getName());
             ps.setString(2, c.getPwd());
             flag = ps.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
