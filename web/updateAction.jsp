@@ -29,6 +29,7 @@
     <script src="js/bootstrap.min.js"></script>
 </head>
 <%@ page language="java" import="java.util.*,com.zhangjiarui.mysql.LinkDB" pageEncoding="UTF-8" %>
+<%@ page import="com.zhangjiarui.MD5.MD5" %>
 <jsp:useBean id="c" class="com.zhangjiarui.UseDB.Admin" scope="session"></jsp:useBean>
 <body>
 <ol class="breadcrumb">
@@ -42,7 +43,7 @@
     String name = request.getParameter("name");
     String pwd = request.getParameter("password1");
     LinkDB db = new LinkDB();
-    int flag = db.updateAdmin(name, pwd);
+    int flag = db.updateAdmin(name, MD5.md5(pwd));
     if (flag > 0) {
         out.print("恭喜!" + name + "修改成功.");
         out.print("<a href=login_Successful.jsp>点击返回</a>");

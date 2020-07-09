@@ -1,5 +1,6 @@
 package com.zhangjiarui.servlet;
 
+import com.zhangjiarui.MD5.MD5;
 import com.zhangjiarui.UseDB.Admin;
 import com.zhangjiarui.mysql.LinkDB;
 import org.springframework.context.ApplicationContext;
@@ -22,7 +23,7 @@ public class regServlet extends HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password1");
         user.setName(name);
-        user.setPwd(password);
+        user.setPwd(MD5.md5(password));
         System.out.println(user.getName()+"++"+user.getPwd());
         if(DB.insertAdmin(user)==0)
             response.sendRedirect("reg_failed.html");

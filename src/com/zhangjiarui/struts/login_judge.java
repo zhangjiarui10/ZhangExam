@@ -2,6 +2,7 @@ package com.zhangjiarui.struts;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.net.httpserver.HttpServer;
+import com.zhangjiarui.MD5.MD5;
 import com.zhangjiarui.UseDB.Admin;
 import com.zhangjiarui.mysql.LinkDB;
 import org.apache.struts2.ServletActionContext;
@@ -20,7 +21,7 @@ public class login_judge extends ActionSupport {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         user.setName(name);
-        user.setPwd(password);
+        user.setPwd(MD5.md5(password));
         System.out.println(user.getName()+"++"+user.getPwd());
         if(DB.Login(user))
             return "success";
