@@ -24,10 +24,10 @@ public class regServlet extends HttpServlet {
         user.setName(name);
         user.setPwd(password);
         System.out.println(user.getName()+"++"+user.getPwd());
-        if(DB.Login(user))
-            response.sendRedirect("login_Successful.jsp");
+        if(DB.insertAdmin(user)==0)
+            response.sendRedirect("reg_failed.html");
         else
-            response.sendRedirect("login_failed.html");
+            response.sendRedirect("reg_Successful.html");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
