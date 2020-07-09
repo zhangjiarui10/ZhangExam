@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Dell
   Date: 2020/7/9
-  Time: 10:20
+  Time: 14:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>登录成功</title>
+    <title>修改判断</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,34 +28,28 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="js/bootstrap.min.js"></script>
 </head>
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
-<%@ page import="com.zhangjiarui.UseDB.Admin" %>
-<jsp:useBean id="db" class="com.zhangjiarui.mysql.LinkDB" scope="session"></jsp:useBean>
+<%@ page language="java" import="java.util.*,com.zhangjiarui.mysql.LinkDB" pageEncoding="UTF-8" %>
+<jsp:useBean id="c" class="com.zhangjiarui.UseDB.Admin" scope="session"></jsp:useBean>
 <body>
 <ol class="breadcrumb">
     <li><a href="MainPage.html">主页</a></li>
     <li><a href="login1.html">登录</a></li>
-    <li class="active">显示</li>
+    <li><a href="login_Successful.html">登录成功</a></li>
+    <li class="active">修改</li>
 </ol>
-<table class="table table-hover">
-    <tr>
-        <th>用户名</th>
-        <th>密码</th>
-        <th>操作</th>
-    </tr>
-        <%
-        ArrayList<Admin> list = db.showAdmin();
-        for (int i = 0; i < list.size(); i++) {
-            Admin b = list.get(i);
-    %>
-    <tr>
-        <td><%=b.getName()%>
-        </td>
-        <td><%=b.getPwd()%>
-        </td>
-        <td><a href="del.jsp?name=<%=b.getName()%>">删除</a>
-            <a href="update.jsp?name=<%=b.getName()%>&password=<%=b.getPwd() %>">修改</a></td>
-    </tr>
-        <%}%>
 </body>
+<%
+    String name = request.getParameter("name");
+    String pwd = request.getParameter("password1");
+    LinkDB db = new LinkDB();
+    int flag = db.updateAdmin(name, pwd);
+    if (flag > 0) {
+        out.print("恭喜!" + name + "修改成功.");
+        out.print("<a href=login_Successful.jsp>点击返回</a>");
+    } else {
+        out.print("抱歉!" + name + "修改失败.");
+        out.print("<a href=login_Successful.jsp>点击返回</a>");
+    }
+%>
+
 </html>
