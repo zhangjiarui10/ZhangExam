@@ -5,9 +5,9 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="/" extends="struts-default">
+    <package name="/" namespace="/" extends="struts-default">
         <action name="login_judge" class="com.zhangjiarui.struts.login_judge" method="execute">
-            <result name="success">login_Successful.html</result>
+            <result name="success">login_Successful.jsp</result>
             <result name="error">login_failed.html</result>
         </action>
     </package>

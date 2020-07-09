@@ -25,9 +25,9 @@ public class loginServlet extends HttpServlet {
         user.setPwd(password);
         System.out.println(user.getName()+"++"+user.getPwd());
         if(DB.Login(user))
-            response.sendRedirect("login_Successful.html");
+            response.sendRedirect("login_Successful.jsp");
         else
-            response.sendRedirect("login_failed.html");;
+            response.sendRedirect("login_failed.html");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
