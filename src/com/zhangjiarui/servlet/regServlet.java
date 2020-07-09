@@ -14,13 +14,13 @@ import java.io.IOException;
 
 //@WebServlet(value = "/loginT",urlPatterns = "/loginT")
 @WebServlet("/loginT")
-public class loginServlet extends HttpServlet {
+public class regServlet extends HttpServlet {
     ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     Admin user = (Admin) context.getBean("uesr");
     LinkDB DB = (LinkDB) context.getBean("DB");
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
-        String password = request.getParameter("password");
+        String password = request.getParameter("password1");
         user.setName(name);
         user.setPwd(password);
         System.out.println(user.getName()+"++"+user.getPwd());
